@@ -13,7 +13,8 @@ class ProductManager{
             code,
             stock
         }
-       
+       console.log("pruebita");
+
         if (this.products.includes(nuevoProducto.code)){
             console.log("el producto ya existe");
         }else{
