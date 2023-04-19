@@ -13,16 +13,13 @@ class ProductManager{
             code,
             stock
         }
-       console.log("pruebita");
-
-        if (this.products.includes(nuevoProducto.code)){
-            console.log("el producto ya existe");
+   
+        if (this.products.find(ele=>ele.code==nuevoProducto.code)){
+            console.log('El Codigo que desea ingresar ya ha sido ingresado');
         }else{
-
-            this.products.push(nuevoProducto)
+        this.products.push(nuevoProducto)
         }
-     
-
+      
 
     }
 // Genero un id autoincrementable con el largo del producto
@@ -49,7 +46,7 @@ class ProductManager{
 let producto= new ProductManager()
 
 producto.addProduct("Hamburgesa","Doble",3000,"./product/hamb",230,300)
-producto.addProduct("pancho","completo",2000,"./product/hotdog",200,20)
+producto.addProduct("pancho","completo",2000,"./product/hotdog",20,20)
 producto.addProduct("sanguche","completo",1500,"./product/sandwich",200,10)
 /* producto.getProductById(1) */
 console.log(producto.getProduct());
