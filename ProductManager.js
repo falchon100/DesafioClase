@@ -2,7 +2,7 @@ class ProductManager{
     constructor(){
     this.products = [];
     }
-
+// metodo para agregar productos y validacion si es que el codigo ya esta ingresado
     addProduct(title,description,price,thumbnail,code,stock){
         let nuevoProducto = {
             id:this.idGenerator(),
@@ -25,16 +25,16 @@ class ProductManager{
 
 
     }
-
+// Genero un id autoincrementable con el largo del producto
     idGenerator(){
         return this.products.length + 1;
     }
-
+//Metodo para Mostrar los productos actuales
     getProduct(){
         return this.products
     }
 
-
+// Busco en el array de productos si hay un producto con esa id y lo devuelvo o sino Not Found
     getProductById(id){
         let producto = this.products.find(elem=>elem.id == id)
        if (producto){
@@ -45,7 +45,7 @@ class ProductManager{
     }    
 }
 
-
+// Inicializo una instancia Producto 
 let producto= new ProductManager()
 
 producto.addProduct("Hamburgesa","Doble",3000,"./product/hamb",230,300)
