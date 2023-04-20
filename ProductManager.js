@@ -6,7 +6,7 @@ class ProductManager{
     addProduct(title,description,price,thumbnail,code,stock){
 
         if (!title||!description||!price||!thumbnail||!code||!stock){
-        console.log('No se pudo agregar el producto. Falta Completar alguno de los datos');
+        console.log('\n No se pudo agregar el producto. Debera completar todos los campos');
         }
         else{
             let nuevoProducto = {
@@ -19,7 +19,7 @@ class ProductManager{
                 stock
             }
             if (this.products.find(ele=>ele.code==code)){
-                console.log(`No se pudo agrega el producto,el codigo ${code} ya ha sido ingresado`);
+                console.log(`\n No se pudo agrega el producto,el codigo "${code}" ya ha sido ingresado`);
             }else{
             this.products.push(nuevoProducto)
             }
@@ -33,6 +33,7 @@ class ProductManager{
     }
 //Metodo para Mostrar los productos actuales
     getProduct(){
+        console.log("\n ---------------Lista De Productos-----------------")
         return this.products
     }
 
@@ -40,7 +41,7 @@ class ProductManager{
     getProductById(id){
         let producto = this.products.find(elem=>elem.id == id)
        if (producto){
-        console.log("--------------El producto encontrado es :------------");
+        console.log("\n --------------El producto encontrado es :------------");
         console.log(producto);
        }else{
         console.log("not Found");
@@ -51,8 +52,8 @@ class ProductManager{
 // Inicializo una instancia Producto 
 let producto= new ProductManager()
 
-producto.addProduct("","Doble",3000,"./product/hamb",230,300)
-producto.addProduct("pancho","completo",2000,"./product/hotdog",200,200)
+producto.addProduct("Hamburguesa","Doble",3000,"./product/hamb",230,300)
+producto.addProduct("pancho","completo",2000,"./product/hotdog",20,200)
 producto.addProduct("sanguche","completo",1500,"./product/sandwich",200,10)
 producto.getProductById(1)
 console.log(producto.getProduct());
