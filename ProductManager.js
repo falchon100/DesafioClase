@@ -19,7 +19,7 @@ class ProductManager{
                 stock
             }
             if (this.products.find(ele=>ele.code==code)){
-                console.log(`\n No se pudo agrega el producto,el codigo "${code}" ya ha sido ingresado`);
+                console.log(`\n No se pudo agrega el producto,ya que el codigo "${code}" ya ha sido ingresado`);
             }else{
             this.products.push(nuevoProducto)
             }
@@ -49,11 +49,13 @@ class ProductManager{
     }    
 }
 
-// Inicializo una instancia Producto 
+// Se crea la instancia ProductManager
 let producto= new ProductManager()
 
-producto.addProduct("Hamburguesa","Doble",3000,"./product/hamb",230,300)
-producto.addProduct("pancho","completo",2000,"./product/hotdog",20,200)
-producto.addProduct("sanguche","completo",1500,"./product/sandwich",200,10)
-producto.getProductById(1)
+//Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
+console.log(producto.getProduct())
+producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
 console.log(producto.getProduct());
+producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
+producto.getProductById(1)
+producto.getProductById(3)
