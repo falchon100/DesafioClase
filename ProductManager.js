@@ -46,7 +46,21 @@ class ProductManager{
        }else{
         console.log("not Found");
        }
-    }    
+    }  
+    
+    
+    updateProduct(){
+
+    }
+
+    deleteProduct(e){
+     this.products.forEach((elemento,index)=>{
+        if(elemento.code==e){
+            this.products.splice(index,1)
+            console.log(`se elimino "${e}" de la lista`);
+        }
+     })
+    }
 }
 
 // Se crea la instancia ProductManager
@@ -59,3 +73,8 @@ console.log(producto.getProduct());
 producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
 producto.getProductById(1)
 producto.getProductById(3)
+console.log(producto.getProduct());
+/* producto.deleteProduct("abc123")
+console.log(producto.getProduct()); */
+producto.deleteProduct("abc1df23")
+console.log(producto.getProduct())
