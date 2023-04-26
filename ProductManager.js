@@ -1,6 +1,10 @@
+const fs = require("fs")
+
+
 class ProductManager{
     constructor(){
     this.products = [];
+    this.path="Documents/Backend/51400/PrimerDesafio";
     }
 // metodo para agregar productos y validacion si es que el codigo ya esta ingresado
     addProduct(title,description,price,thumbnail,code,stock){
