@@ -77,5 +77,12 @@ let producto= new ProductManager()
 //Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
 console.log(producto.getProduct())
 producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
-producto.addProduct("2","2ba",200,"Sin32en","ab2323",25)
+console.log(producto.getProduct());
+producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
+producto.getProductById(1)
+producto.getProductById(3)
+console.log(producto.getProduct());
+/* producto.deleteProduct("abc123")
+console.log(producto.getProduct()); */
+producto.deleteProduct("abc1df23")
 console.log(producto.getProduct())
