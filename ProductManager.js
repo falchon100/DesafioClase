@@ -4,10 +4,11 @@ const fs = require("fs")
 class ProductManager{
     constructor(){
     this.products = [];
-    this.path="Documents/Backend/51400/PrimerDesafio";
+    this.path="./DesafioClase2.txt";
     }
 // metodo para agregar productos y validacion si es que el codigo ya esta ingresado
-    addProduct(title,description,price,thumbnail,code,stock){
+    async addProduct(title,description,price,thumbnail,code,stock){
+     
   // fs.promises.writeFile 
         if (!title||!description||!price||!thumbnail||!code||!stock){
         console.log('\n No se pudo agregar el producto. Debera completar todos los campos');
@@ -26,6 +27,7 @@ class ProductManager{
                 console.log(`\n No se pudo agrega el producto,ya que el codigo "${code}" ya ha sido ingresado`);
             }else{
             this.products.push(nuevoProducto)
+            fs.promises.writeFile(this.path,JSON.stringify(this.products))
             }
         }
     }
@@ -38,6 +40,7 @@ class ProductManager{
 //Metodo para Mostrar los productos actuales
     getProduct(){
         //fs.promises.readFile
+        fs.promises.readFile(this.path,"utf-8")
         console.log("\n ---------------Lista De Productos-----------------")
         return this.products
     }
@@ -74,12 +77,5 @@ let producto= new ProductManager()
 //Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
 console.log(producto.getProduct())
 producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
-console.log(producto.getProduct());
-producto.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
-producto.getProductById(1)
-producto.getProductById(3)
-console.log(producto.getProduct());
-/* producto.deleteProduct("abc123")
-console.log(producto.getProduct()); */
-producto.deleteProduct("abc1df23")
+producto.addProduct("2","2ba",200,"Sin32en","ab2323",25)
 console.log(producto.getProduct())
