@@ -8,7 +8,7 @@ class ProductManager{
     }
 // metodo para agregar productos y validacion si es que el codigo ya esta ingresado
     addProduct(title,description,price,thumbnail,code,stock){
-
+  // fs.promises.writeFile 
         if (!title||!description||!price||!thumbnail||!code||!stock){
         console.log('\n No se pudo agregar el producto. Debera completar todos los campos');
         }
@@ -37,6 +37,7 @@ class ProductManager{
     }
 //Metodo para Mostrar los productos actuales
     getProduct(){
+        //fs.promises.readFile
         console.log("\n ---------------Lista De Productos-----------------")
         return this.products
     }
