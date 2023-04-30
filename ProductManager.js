@@ -30,12 +30,16 @@ async readProducts (){
             }
             this.idNumber.push(nuevoProducto)
             let producto= await this.readProducts()
-
-            if (producto.find(ele=>ele.code==code)){
-                console.log(`\n No se pudo agrega el producto,ya que el codigo "${code}" ya ha sido ingresado`);
+            if (producto.length==0){
+                this.products.push(nuevoProducto)
+                await fs.promises.writeFile(this.path,JSON.stringify(this.products))
             }else{
-            this.products.push(nuevoProducto)
-           await fs.promises.writeFile(this.path,JSON.stringify(this.products))
+                if (producto.find(ele=>ele.code==code)){
+                console.log(`\n No se pudo agrega el producto,ya que el codigo "${code}" ya ha sido ingresado`)}
+                else{
+                    producto.push(nuevoProducto)
+                    await fs.promises.writeFile(this.path,JSON.stringify(producto))
+                }
             }
         }
     }
@@ -89,8 +93,7 @@ async readProducts (){
 // Se crea la instancia ProductManager
 let producto= new ProductManager()
 
-producto.addProduct('uno',"uno",1,"uno","uno",1);
-producto.addProduct('dos',"dos",2,"dos","dos",2);
+/* producto.addProduct('uno',"uno",1,"uno","uno",1);
+producto.addProduct('dos',"dos",2,"dos","dos",2); */
 producto.addProduct('tres',"tres",3,"tres","tres",3);
 
-producto.getProduct()
