@@ -73,8 +73,12 @@ async readProducts (){
        }
     }  
     
-    updateProduct(){
-
+  async  updateProduct({id,...producto}){
+    await this.deleteProduct(id);
+    let productOld= await this.readProducts()
+    let productsModif= [{
+    id,...producto},...productOld]
+    await fs.promises.writeFile(this.path,JSON.stringify(productsModif))
     }
 
    async deleteProduct(id){
@@ -93,7 +97,19 @@ async readProducts (){
 // Se crea la instancia ProductManager
 let producto= new ProductManager()
 
-/* producto.addProduct('uno',"uno",1,"uno","uno",1);
-producto.addProduct('dos',"dos",2,"dos","dos",2); */
-producto.addProduct('tres',"tres",3,"tres","tres",3);
+/*  producto.addProduct('uno',"uno",1,"uno","uno",1);
+producto.addProduct('dos',"dos",2,"dos","dos",2);
+producto.addProduct('tres',"tres",3,"tres","tres",3); */
 
+
+/* producto.updateProduct({
+    id: 3,
+    title: 'tres',
+    description: 'tres',
+    price: 3,
+    thumbnail: 'tres',
+    code: 'tres',
+    stock: 3
+  })  */
+
+/* producto.getProduct() */
