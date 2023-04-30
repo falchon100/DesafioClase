@@ -72,24 +72,31 @@ async readProducts (){
         console.log("not Found");
        }
     }  
-    
+
+//desestructuro los valores del producto enviado en parametros  y elimino a ese producto
   async  updateProduct({id,...producto}){
+//uso ese id para borrar el producto
     await this.deleteProduct(id);
+// usamos readProducts para leer los productos que quedaron
     let productOld= await this.readProducts()
+// genero un nuevo array que tendra los productos restantes (...productOLd)
     let productsModif= [{
     id,...producto},...productOld]
     await fs.promises.writeFile(this.path,JSON.stringify(productsModif))
     }
 
    async deleteProduct(id){
+    //Leo el archivo y el objeto lo guardo en productoEncontrado
     let producto2= await fs.promises.readFile(this.path,"utf-8")
     let productoEncontrado = JSON.parse(producto2)
+    //recorro el array de productos y si encuentro uno con el mismo id , lo borro y muestro el indice que borre
     productoEncontrado.forEach((elemento,index)=>{
         if(elemento.id==id){
             productoEncontrado.splice(index,1)
             console.log(`se elimino "${id}" de la lista`);
         }
      })
+     //Envio el array de productos actualizados al archivo
    await fs.promises.writeFile(this.path,JSON.stringify(productoEncontrado))
     }
 }
@@ -99,8 +106,8 @@ let producto= new ProductManager()
 
 /*  producto.addProduct('uno',"uno",1,"uno","uno",1);
 producto.addProduct('dos',"dos",2,"dos","dos",2);
-producto.addProduct('tres',"tres",3,"tres","tres",3); */
-
+producto.addProduct('tres',"tres",3,"tres","tres",3);
+ */
 
 /* producto.updateProduct({
     id: 3,
