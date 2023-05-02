@@ -55,7 +55,7 @@ async readProducts (){
     }
 
 //Metodo para Mostrar los productos actuales
-   async getProduct(){
+   async getProducts(){
     let producto = await this.readProducts()
     return console.log(producto);
     }
@@ -93,7 +93,7 @@ async readProducts (){
     productoEncontrado.forEach((elemento,index)=>{
         if(elemento.id==id){
             productoEncontrado.splice(index,1)
-            console.log(`se elimino "${id}" de la lista`);
+            console.log(`se elimino el id "${id}" de la lista`);
         }
      })
      //Envio el array de productos actualizados al archivo
@@ -109,6 +109,10 @@ producto.addProduct('dos',"dos",2,"dos","dos",2);
 producto.addProduct('tres',"tres",3,"tres","tres",3);
  */
 
+/* producto.getProductById(2) */
+
+/* producto.deleteProduct(2) */
+
 /* producto.updateProduct({
     id: 3,
     title: 'tres',
@@ -119,4 +123,4 @@ producto.addProduct('tres',"tres",3,"tres","tres",3);
     stock: 3
   })  */
 
-/* producto.getProduct() */
+/* producto.getProducts() */
