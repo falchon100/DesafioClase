@@ -101,20 +101,20 @@ async readProducts (){
     }
 }
 
-// Se crea la instancia ProductManager
+//Se creará una instancia de la clase “ProductManager”
 let producto= new ProductManager()
 
-/*  producto.addProduct('uno',"uno",1,"uno","uno",1);
-producto.addProduct('dos',"dos",2,"dos","dos",2);
-producto.addProduct('tres',"tres",3,"tres","tres",3);
- */
+//Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
+    /* producto.getProducts() */
 
-/* producto.getProductById(2) */
+    /*  producto.addProduct('producto prueba',"Este es un producto prueba",200,"Sin imagen","abc123",25); */
 
-/* producto.deleteProduct(2) */
+    /* producto.getProducts() */
+    
+    /* producto.getProductById(1) */
 
-/* producto.updateProduct({
-    id: 3,
+    /* producto.updateProduct({
+    id: 1,
     title: 'tres',
     description: 'tres',
     price: 3,
@@ -123,4 +123,6 @@ producto.addProduct('tres',"tres",3,"tres","tres",3);
     stock: 3
   })  */
 
-/* producto.getProducts() */
+    /* producto.deleteProduct(1) */
+
+  
