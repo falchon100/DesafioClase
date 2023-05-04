@@ -62,12 +62,11 @@ async readProducts (){
 
 // Busco en el array de productos si hay un producto con esa id y lo devuelvo o sino Not Found
   async  getProductById(id){
-    let producto2= await fs.promises.readFile(this.path,"utf-8")
-    let productoEncontrado = JSON.parse(producto2)
-        let producto = productoEncontrado.find(elem=>elem.id == id)
-       if (producto){
+    let producto = await this.readProducts()
+    let productoEncontrado = producto.find(elem=>elem.id == id)
+       if (productoEncontrado){
         console.log("\n --------------El producto encontrado es :------------");
-        console.log(producto);
+        console.log(productoEncontrado);
        }else{
         console.log("not Found");
        }
@@ -114,7 +113,7 @@ let producto= new ProductManager()
  */
     /* producto.getProducts() */
     
-    /* producto.getProductById(1) */
+    producto.getProductById(2)
 
   /*   producto.updateProduct(2,{
     title: 'tres',
