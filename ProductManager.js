@@ -73,16 +73,19 @@ async readProducts (){
        }
     }  
 
-//desestructuro los valores del producto enviado en parametros  y elimino a ese producto
-  async  updateProduct({id,...producto}){
-//uso ese id para borrar el producto
-    await this.deleteProduct(id);
-// usamos readProducts para leer los productos que quedaron
+
+  async  updateProduct(id,producto){
     let productOld= await this.readProducts()
-// genero un nuevo array que tendra los productos restantes (...productOLd)
-    let productsModif= [{
-    id,...producto},...productOld]
-    await fs.promises.writeFile(this.path,JSON.stringify(productsModif))
+    let indice= productOld.findIndex(producto => producto.id === id)
+    if (indice !== -1){
+        productOld[indice].title = producto.title
+        productOld[indice].description = producto.description
+        productOld[indice].price = producto.price
+        productOld[indice].code = producto.code
+        productOld[indice].stock = producto.stock
+    }
+    await fs.promises.writeFile(this.path, JSON.stringify(productOld))
+    return console.log(`Producto actualizado`);
     }
 
    async deleteProduct(id){
@@ -107,22 +110,21 @@ let producto= new ProductManager()
 //Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
     /* producto.getProducts() */
 
-    /*  producto.addProduct('producto prueba',"Este es un producto prueba",200,"Sin imagen","abc123",25); */
-
+/*      producto.addProduct('producto prueba',"Este es un producto prueba",200,"Sin imagen","abc123",25);
+ */
     /* producto.getProducts() */
     
     /* producto.getProductById(1) */
 
-    /* producto.updateProduct({
-    id: 1,
+  /*   producto.updateProduct(2,{
     title: 'tres',
     description: 'tres',
     price: 3,
     thumbnail: 'tres',
     code: 'tres',
     stock: 3
-  })  */
-
+  }) 
+ */
     /* producto.deleteProduct(1) */
 
   

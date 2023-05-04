@@ -1,1 +1,1 @@
-[]
+[{"id":1,"title":"tres","description":"tres","price":3,"thumbnail":"Sin imagen","code":"tres","stock":3},{"id":2,"title":"tres","description":"tres","price":3,"thumbnail":"Sin imagen","code":"tres","stock":3}]
