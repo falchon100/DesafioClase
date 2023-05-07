@@ -1,7 +1,6 @@
-const fs = require("fs")
+import fs from 'fs'
 
-
-class ProductManager{
+export default class ProductManager{
     constructor(){
     this.products = [];
     this.path="./DesafioClase2.txt";
@@ -109,11 +108,17 @@ let producto= new ProductManager()
 //Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
     /* producto.getProducts() */
 
-/*      producto.addProduct('producto prueba',"Este es un producto prueba",200,"Sin imagen","abc123",25);
- */
+/*      producto.addProduct('Cafe',"Cafe expreso",200,"./Cafe","coffe",10);
+     producto.addProduct('Capuchino',"Capuchino Italiano",400,"./Capuchino","Capu",5);
+     producto.addProduct('Te',"Te Caliente",250,"./Te","Tecito",30);
+     producto.addProduct('Submarino',"Con chocolate",500,"./Sub","Subma",5);
+     producto.addProduct('Latte',"con canela",600,"./Latte","Late",7);
+     producto.addProduct('Frapuchino',"con Helado",600,"./frapu","Frap",4);
+     producto.addProduct('Lagrima',"Poco cafe",400,"./lagrima","lagri",6); */
+
     /* producto.getProducts() */
     
-    producto.getProductById(2)
+  /*   producto.getProductById(2) */
 
   /*   producto.updateProduct(2,{
     title: 'tres',
