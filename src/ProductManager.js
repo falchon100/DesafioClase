@@ -114,8 +114,10 @@ let producto= new ProductManager()
      producto.addProduct('Submarino',"Con chocolate",500,"./Sub","Subma",5);
      producto.addProduct('Latte',"con canela",600,"./Latte","Late",7);
      producto.addProduct('Frapuchino',"con Helado",600,"./frapu","Frap",4);
-     producto.addProduct('Lagrima',"Poco cafe",400,"./lagrima","lagri",6); */
-
+     producto.addProduct('Lagrima',"Poco cafe",400,"./lagrima","lagri",6); 
+     producto.addProduct('Moca',"Moca Blanco",500,"./Moca","Moca",3);
+     producto.addProduct('Doble expresso',"Doble",400,"./expresso","doblee",10);
+     producto.addProduct('Americano',"Americano",300,"./Americano","americ",5); 
     /* producto.getProducts() */
     
   /*   producto.getProductById(2) */

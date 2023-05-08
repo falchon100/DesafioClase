@@ -16,7 +16,12 @@ limit?res.send(productos.slice(0,limit)):res.send(await leerProductos)
 
 app.get('/products/:id',async(req,res)=>{
 let productos= await leerProductos;
-res.send(productos.filter(prod=>prod.id==req.params.id))
+if (productos.find(prod=>prod.id==req.params.id)){
+    res.send(productos.filter(prod=>prod.id==req.params.id))
+}else{
+
+    res.send('no se encontro el producto')
+}
 
 })
 
