@@ -11,7 +11,7 @@ app.listen(port,()=>console.log('creando servidor'))
 app.get('/products',async(req,res)=>{
 let limit = req.query.limit;
 let productos = await producto.readProducts();
-limit?res.send(productos.slice(0,limit)):res.send(await producto.readProducts())
+limit?res.send(productos.slice(0,limit)):res.send(productos)
 })
 
 app.get('/products/:id',async(req,res)=>{
