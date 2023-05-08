@@ -10,15 +10,13 @@ app.listen(port,()=>console.log('creando servidor'))
 
 app.get('/products',async(req,res)=>{
 let limit = req.query.limit;
-let productos = await leerProductos;
-limit?res.send(productos.slice(0,limit)):res.send(await leerProductos)
+let productos = await producto.readProducts();
+limit?res.send(productos.slice(0,limit)):res.send(await producto.readProducts())
 })
 
 app.get('/products/:id',async(req,res)=>{
-let productos= await leerProductos;
+let productos= await producto.readProducts();
 productos.find(prod=>prod.id==req.params.id)?res.send(productos.filter(prod=>prod.id==req.params.id)):res.send('no se encontro el producto')
 })
 
 let producto= new ProductManager()
-
-const leerProductos= producto.readProducts()
