@@ -66,8 +66,10 @@ async readProducts (){
        if (productoEncontrado){
         console.log("\n --------------El producto encontrado es :------------");
         console.log(productoEncontrado);
+        return productoEncontrado
        }else{
         console.log("not Found");
+        return undefined
        }
     }  
 

@@ -15,8 +15,11 @@ limit?res.send(productos.slice(0,limit)):res.send(productos)
 })
 
 app.get('/products/:id',async(req,res)=>{
-let productos= await producto.readProducts();
-productos.find(prod=>prod.id==req.params.id)?res.send(productos.filter(prod=>prod.id==req.params.id)):res.send('no se encontro el producto')
+  let productoId= await producto.getProductById(req.params.id)
+  productoId?res.send(productoId):res.send('no se encontro el producto')
+  // TAMBIEN AGREGO PRUEBITAS
+/* let productos= await producto.readProducts();
+productos.find(prod=>prod.id==req.params.id)?res.send(productos.filter(prod=>prod.id==req.params.id)):res.send('no se encontro el producto') */
 })
 
 let producto= new ProductManager()
